@@ -8,25 +8,45 @@ function App() {
   const [name, setName] = useState([]);
 
   useEffect(() => {
+    // const requestOptions = {
+    //   method: "GET",
+    //   redirect: "follow",
+    // };
+
+    // fetch(
+    //   "https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyBYPS3vYonoWeIkqtq2LOMAibPKsnH2rEI",
+    //   requestOptions
+    // )
+    //   .then((response) => response.json())
+    //   .then((result) => setVideos(result.items))
+    //   .catch((error) => console.log("error", error));
+    getVideoList();
+  }, []);
+
+  const handleSearch = (keyword) => {
+    console.log(keyword);
+  };
+
+  const getVideoList = (keyword) => {
     const requestOptions = {
       method: "GET",
       redirect: "follow",
     };
 
     fetch(
-      "https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyBYPS3vYonoWeIkqtq2LOMAibPKsnH2rEI",
+      `https://www.googleapis.com/youtube/v3/videos?q=bts&part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyBYPS3vYonoWeIkqtq2LOMAibPKsnH2rEI`,
       requestOptions
     )
       .then((response) => response.json())
       .then((result) => setVideos(result.items))
       .catch((error) => console.log("error", error));
-  }, []);
+  };
 
   return (
-    <h1>
-      <VideoSearch />
+    <>
+      <VideoSearch onSearch={handleSearch} />
       <VideoList videos={videos} />
-    </h1>
+    </>
   );
 }
 
