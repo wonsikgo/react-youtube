@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./app.css";
+import styles from "./app.module.css";
 import VideoList from "./components/video_list/video_list";
 import VideoSearch from "./components/video_search/video_search";
 
@@ -43,10 +43,10 @@ function App() {
   };
 
   return (
-    <>
+    <div className={styles.app}>
       <VideoSearch onSearch={handleSearch} />
       <VideoList videos={videos} />
-    </>
+    </div>
   );
 }
 

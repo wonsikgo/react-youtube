@@ -25,10 +25,10 @@ const VideoSearch = () => {
     <header className={styles.header}>
       <img
         className={styles.logo_image}
-        src={`${process.env.PUBLIC_URL}/images/logo.png`}
+        src="/images/logo.png"
         alt="logo_image"
       />
-      <span className={styles.title}>Youtube</span>
+      <h1 className={styles.title}>Youtube</h1>
       <input
         className={styles.search_input}
         type="text"
@@ -37,12 +37,13 @@ const VideoSearch = () => {
         onChange={handleKeywordChange}
         onKeyPress={handleKeyPress}
       />
-      <img
-        className={styles.button_image}
-        src={`${process.env.PUBLIC_URL}/images/search.png`}
-        alt="search_icon"
-        onClick={handleSearch}
-      />
+      <button className={styles.button} onClick={handleSearch}>
+        <img
+          className={styles.button_image}
+          src="/images/search.png"
+          alt="search_icon"
+        />
+      </button>
     </header>
   );
 };
