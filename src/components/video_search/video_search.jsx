@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./video_search.module.css";
 
-const VideoSearch = () => {
+const VideoSearch = (props) => {
   const [keyword, setKeyword] = useState("");
 
   const handleKeywordChange = (e) => {
@@ -17,7 +17,7 @@ const VideoSearch = () => {
   const handleSearch = () => {
     if (!keyword) return;
     // console.log(keyword);
-    console.log(this.props);
+    console.log(props);
     // this.props.onSearch(keyword);
   };
 
