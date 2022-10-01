@@ -23,7 +23,7 @@ function App({ youtube }) {
     getVideoList();
   }, []);
 
-  const handleSearch = (keyword) => {
+  const onSearch = (keyword) => {
     console.log(keyword);
   };
 
@@ -44,7 +44,7 @@ function App({ youtube }) {
 
   return (
     <div className={styles.app}>
-      <VideoSearch onSearch={handleSearch} />
+      <VideoSearch onSearch={onSearch} />
       <VideoList videos={videos} />
     </div>
   );

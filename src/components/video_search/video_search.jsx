@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./video_search.module.css";
 
 const VideoSearch = (props) => {
-  const [keyword, setKeyword] = useState("");
-
-  const handleKeywordChange = (e) => {
-    setKeyword(e.target.value);
-  };
+  const inputRef = useRef("");
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -15,10 +11,12 @@ const VideoSearch = (props) => {
   };
 
   const handleSearch = () => {
-    if (!keyword) return;
-    // console.log(keyword);
+    console.log(inputRef.current.value);
     console.log(props);
-    // this.props.onSearch(keyword);
+    if (!inputRef.current.value) return;
+    const keyword = inputRef.current.value;
+    console.log(`keyword : ${keyword}`);
+    props.onSearch(keyword);
   };
 
   return (
@@ -33,8 +31,7 @@ const VideoSearch = (props) => {
         className={styles.search_input}
         type="text"
         placeholder="Search.."
-        value={keyword}
-        onChange={handleKeywordChange}
+        ref={inputRef}
         onKeyPress={handleKeyPress}
       />
       <button className={styles.button} onClick={handleSearch}>
