@@ -27,21 +27,6 @@ function App({ youtube }) {
       .catch((error) => console.log("error", error));
   }, []);
 
-  // const getVideoList = (keyword) => {
-  //   const requestOptions = {
-  //     method: "GET",
-  //     redirect: "follow",
-  //   };
-
-  //   fetch(
-  //     `https://www.googleapis.com/youtube/v3/search?q=bts&part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyBYPS3vYonoWeIkqtq2LOMAibPKsnH2rEI`,
-  //     requestOptions
-  //   )
-  //     .then((response) => response.json())
-  //     .then((result) => setVideos(result.items))
-  //     .catch((error) => console.log("error", error));
-  // };
-
   return (
     <div className={styles.app}>
       <VideoSearch onSearch={onSearch} />
