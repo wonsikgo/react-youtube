@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { memo, useRef } from "react";
 import styles from "./video_search.module.css";
 
-const VideoSearch = (props) => {
+const VideoSearch = memo((props) => {
   const inputRef = useRef("");
 
   const handleKeyPress = (e) => {
@@ -43,6 +43,6 @@ const VideoSearch = (props) => {
       </button>
     </header>
   );
-};
+});
 
 export default VideoSearch;
