@@ -7,7 +7,7 @@ import axios from "axios";
 
 const httpClient = axios.create({
   baseURL: "https://www.googleapis.com/youtube/v3",
-  params: { key: process.env.REACT_APP_APP_KEY },
+  params: { key: process.env.REACT_APP_API_KEY },
 });
 
 const youtube = new Youtube(httpClient);
