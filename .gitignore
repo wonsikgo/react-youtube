@@ -108,3 +108,6 @@ dist
 
 # Local Netlify folder
 .netlify
+
+# ignore all files in the build/ directory
+build/
